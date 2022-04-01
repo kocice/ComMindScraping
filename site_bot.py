@@ -1,4 +1,3 @@
-import datetime
 import time
 
 from bs4 import BeautifulSoup
@@ -9,24 +8,6 @@ class AmazonBot:
 
     def __init__(self, mongodb_client):
         self.mongodb_client = mongodb_client
-        self.amazon_header = {
-            'authority': 'www.amazon.fr',
-            'cache-control': 'max-age=0',
-            'upgrade-insecure-requests': '1',
-            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
-            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-            'sec-gpc': '1',
-            'sec-fetch-site': 'none',
-            'sec-fetch-mode': 'navigate',
-            'sec-fetch-user': '?1',
-            'sec-fetch-dest': 'document',
-            'accept-language': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7',
-        }
-        # Ajouter ici le chemin vers chromedriver self.driver = webdriver.Chrome(
-        # executable_path=r"C:\Users\cedri\Documents\chromedriver_win32\chromedriver.exe") ou bien autre astuce
-        # faites un pip install webdriver-manager et a la place du chemin mettez ChromeDriverManager().install() si
-        # vous préférez la seconde solution enlever les commentaires des deux prochaines lignes et commentez la ligne
-        # 29
         options = webdriver.ChromeOptions()
         # to supress the error messages/logs
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
